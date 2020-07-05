@@ -214,9 +214,12 @@ https://trello.com/b/7ODd01dz/trump-defends-america
 Git
 URLs for the project repo and deploy
 
-Link Repo
+Link Repo 
+https://github.com/mattalanhoward/project-1-DOM-Canvas-game
 Link Deploy
+
 Slides
+
 URLs for the project presentation
 
 Link Slides
