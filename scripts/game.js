@@ -2,12 +2,13 @@ class Game {
     constructor(){
         this.canvas = undefined;
         this.ctx = undefined;
-        this.babyTrump = new Player(this, 200,550, 50, 200);
+        this.babyTrump = new Player(this, 100,160, 40, 80);
         this.obstacles = [];
         this.clouds = [];
         this.background = undefined;
         this.backgroundImg = new Image();
         this.score = 0;
+        this.hits = 0;
         this.x = undefined;
         this.y = undefined;
         this.width = canvas.width;
@@ -22,6 +23,7 @@ class Game {
         this.y = 0;
         this.start();
         this.createObstacles();
+        this.createClouds();
     }
 
     //start game
@@ -38,29 +40,31 @@ class Game {
             this.drawMainCharacter();
             //call move function to move character
             this.babyTrump.move();
+
+            //add clouds
+            //loop through array of clouds and draw each
+            for(let i = 0;i<this.clouds.length;i++){
+                this.clouds[i].move();
+                this.clouds[i].draw();
+                //erase clouds after they leave canvas
+                if(this.clouds[i].x < -100){
+                this.clouds.splice(i,1);
+                }
+            }
             //add obstacles
             //loop through array of obstacles and draw each
             for(let i = 0;i<this.obstacles.length;i++){
                 this.obstacles[i].move();
                 this.obstacles[i].draw();
                 this.babyTrump.crashCollision(this.obstacles[i]);
-                //erase cars after they leave canvas
-                if(this.obstacles[i].y > 800){
+                //erase news after they leave canvas
+                if(this.obstacles[i].x < -100){
                 this.obstacles.splice(i,1);
                 //can add score here.
                 }
             }
-            //add clouds
-            //loop through array of clouds and draw each
-            for(let i = 0;i<this.clouds.length;i++){
-                this.clouds[i].move();
-                this.clouds[i].draw();
-                    //erase clouds after they leave canvas
-                    if(this.clouds[i].y > 800){
-                    this.clouds.splice(i,1);
-                    }
-            }
-        }, 1000 / 60);
+
+        }, 20);
     }
 
     //create obstacle
@@ -89,7 +93,7 @@ class Game {
 
     //recurssion
     setTimeout(()=>{
-        this.createObstacles();
+        this.createClouds();
     },3000)
     }
 
