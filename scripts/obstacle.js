@@ -9,12 +9,14 @@ class Obstacle extends Component {
         this.height = 30;
         this.img = new Image();
     }
+    
     draw(){
         //access image
         //need to randomly select 1 of 3 news sources
-        // this.img.src = "../images/msnbc.png";
-        // this.img.src = "../images/nytimes.png";
-        this.img.src = "../images/cnn.png";
+        let nbc = this.img.src = "../images/msnbc.png";
+        // let nytimes = this.img.src = "../images/nytimes.png";
+        // let cnn = this.img.src = "../images/cnn.png";
+        // let news = [nbc,nytimes,cnn]
         //draw news
         this.game.ctx.drawImage(
             this.img,
@@ -33,8 +35,8 @@ class Obstacle extends Component {
     }
 
     bounce(){
-            this.x += 10;
-            this.y -= 20;
+            this.x += 20;
+            this.y += 20;
     }
 
     

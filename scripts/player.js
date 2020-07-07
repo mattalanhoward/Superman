@@ -36,11 +36,18 @@ class Player extends Component {
 }
     
     crashCollision(element){
-      if(this.x < element.x+ element.width && this.x + this.width > element.x && this.y < element.y + element.height && this.height + this.y > element.y) {
+      if(this.x - 20 < element.x+ element.width && this.x + this.width > element.x && this.y < element.y + element.height && this.height + this.y > element.y) {
         return true
       } else { 
         return false      
       }
+    }
+
+    bounce() {
+      
+        this.x -= 20;
+        this.y -= 20;
+      
     }
 }
 

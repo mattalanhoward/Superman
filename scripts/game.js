@@ -7,7 +7,7 @@ class Game {
         this.clouds = [];
         this.backgroundImg = new Image();
         this.score = 0;
-        this.hits = 0;
+        this.lives = 3;
         this.width = canvas.width;
         this.height = canvas.height;
     }
@@ -38,6 +38,9 @@ class Game {
             //call move function to move character
             this.character.move();
         
+            this.ctx.font = '20px sans-serif'
+            this.ctx.fillStyle = '#ffffff'
+            this.ctx.fillText(`Hits Left: ${this.lives}`, 20, 50)
 
             //add clouds
             //loop through array of clouds and draw each
@@ -55,12 +58,15 @@ class Game {
                 this.obstacles[i].move();
                 this.obstacles[i].draw();
                 if(this.character.crashCollision(this.obstacles[i])){
-                    // this.obstacles[i].bounce();
-                    clearInterval(idInterval)
-                    this.clear()
-                    this.final();
+                    this.obstacles[i].bounce();
+                    this.character.bounce();                    
+                    this.ouch();
 
-                    // this.ouch();
+                    if(this.lives === 0){
+                        clearInterval(idInterval)
+                        this.clear()
+                        this.final();
+                    }
                 };
                 //erase obstacles after they leave canvas
                 if(this.obstacles[i].x < -50){
@@ -68,8 +74,6 @@ class Game {
                 this.obstacles.splice(i,1);
                 
                 }
-                //can add score here.
-                
             }
 
         }, 20);
@@ -78,16 +82,15 @@ class Game {
     //create obstacle
     createObstacles(){
         //randomly if even number create obstacle
-        if(Math.floor(Math.random() * 10) % 2 === 0){
+        if(Math.floor(Math.random() * 10) % 9 === 0){
         //each time we create obstacle => push to array
         this.obstacles.push(new Obstacle(this))
-        console.log(`obstacles --->`, this.obstacles);
         }
 
     //recurssion
     setTimeout(()=>{
         this.createObstacles();
-    },2000)
+    },1000)
     }
 
     //create clouds
@@ -126,29 +129,31 @@ clear(){
     //clear canvas function
     this.ctx.clearRect(this.x, this.y, this.width, this.height)
 }
-
-final() {
-    // console.log('crash')
-    this.ctx.fillStyle = 'ff0000'
-    this.ctx.fillRect(0, 0, this.width, this.height)
-    this.ctx.font = '20px sans-serif'
-    this.ctx.fillStyle = '#ffffff'
-    this.ctx.fillText(`Your final score: ${this.score}`, 300, 200)
-    this.ctx.fillStyle = 'black'
-
-  }
-
   //call this function within the obstacles loop above to print something to the screen saying ouch!
   ouch() {
-    // console.log('crash')
-    this.ctx.fillStyle = 'ff0000'
-    this.ctx.fillRect(0, 0, this.width, this.height)
 
+    this.lives --;
+    //flash screen red when hit
+    for(let i = 0;i<100;i++){
+    this.ctx.fillStyle = 'red'
+    this.ctx.fillRect(0, 0, this.width, this.height)
+    this.ctx.clearRect(0,0,this.width,this.height)
+        
+    this.ctx.font = '20px sans-serif'
+    this.ctx.fillText("A POLITICAL WITCH HUNT!", 300, 200)
+    }
+  }
+
+final() {
+    this.ctx.fillStyle = 'black'
+    this.ctx.fillRect(0, 0, this.width, this.height)
     this.ctx.font = '20px sans-serif'
     this.ctx.fillStyle = '#ffffff'
-    this.ctx.fillText("A POLITICAL WITCH HUNT!", 300, 200)
-    this.ctx.fillStyle = 'red'
+    this.ctx.fillText(`Score: ${this.score}`, 375, 200)
+    
 
   }
+
+
 
 }
