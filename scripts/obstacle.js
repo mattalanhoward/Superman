@@ -11,13 +11,11 @@ class Obstacle extends Component {
     }
     
     draw(){
-        //access image
-        //need to randomly select 1 of 3 news sources
-        let nbc = this.img.src = "../images/msnbc.png";
-        // let nytimes = this.img.src = "../images/nytimes.png";
-        // let cnn = this.img.src = "../images/cnn.png";
-        // let news = [nbc,nytimes,cnn]
-        //draw news
+        //access random image
+        const newsArr = ["../images/msnbc.png","../images/nytimes.png","../images/cnn.png"]
+        const randomIdx = Math.floor(Math.random()*3)
+        this.img.src = newsArr[randomIdx]
+        
         this.game.ctx.drawImage(
             this.img,
             this.x,

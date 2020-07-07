@@ -192,7 +192,8 @@ final() {
     this.ctx.font = '20px sans-serif'
     this.ctx.fillStyle = '#ffffff'
     this.ctx.fillText(`Score: ${this.score}`, 375, 200)
-    
+    this.ctx.fillText('"NO PRESIDENT HAS EVER BEEN TREATED AS UNFAIRLY AS ME"', 100, 250)
+
 
   }
 
