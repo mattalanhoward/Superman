@@ -2,15 +2,12 @@ class Game {
     constructor(){
         this.canvas = undefined;
         this.ctx = undefined;
-        this.babyTrump = new Player(this, 100,160, 40, 80);
+        this.character = new Player(this, 100,160, 40, 80);
         this.obstacles = [];
         this.clouds = [];
-        this.background = undefined;
         this.backgroundImg = new Image();
         this.score = 0;
         this.hits = 0;
-        this.x = undefined;
-        this.y = undefined;
         this.width = canvas.width;
         this.height = canvas.height;
     }
@@ -31,15 +28,16 @@ class Game {
         this.drawBackGround();
         this.drawMainCharacter();
         //set frame refresh => can also use request animation frame
-        setInterval(() => {
+        const idInterval = setInterval(() => {
             //clear canvas
             this.clear();
             //draw back ground
             this.drawBackGround();
-            //draw babyTrump
+            //draw character
             this.drawMainCharacter();
             //call move function to move character
-            this.babyTrump.move();
+            this.character.move();
+        
 
             //add clouds
             //loop through array of clouds and draw each
@@ -56,12 +54,22 @@ class Game {
             for(let i = 0;i<this.obstacles.length;i++){
                 this.obstacles[i].move();
                 this.obstacles[i].draw();
-                this.babyTrump.crashCollision(this.obstacles[i]);
-                //erase news after they leave canvas
-                if(this.obstacles[i].x < -100){
+                if(this.character.crashCollision(this.obstacles[i])){
+                    // this.obstacles[i].bounce();
+                    clearInterval(idInterval)
+                    this.clear()
+                    this.final();
+
+                    // this.ouch();
+                };
+                //erase obstacles after they leave canvas
+                if(this.obstacles[i].x < -50){
+                this.score ++
                 this.obstacles.splice(i,1);
-                //can add score here.
+                
                 }
+                //can add score here.
+                
             }
 
         }, 20);
@@ -79,7 +87,7 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createObstacles();
-    },3000)
+    },2000)
     }
 
     //create clouds
@@ -111,11 +119,36 @@ class Game {
     }
 
 drawMainCharacter(){
-    this.babyTrump.drawComponent("../images/baby-trump.png")
+    this.character.drawComponent("../images/baby-trump.png")
 }
 
 clear(){
     //clear canvas function
     this.ctx.clearRect(this.x, this.y, this.width, this.height)
 }
+
+final() {
+    // console.log('crash')
+    this.ctx.fillStyle = 'ff0000'
+    this.ctx.fillRect(0, 0, this.width, this.height)
+    this.ctx.font = '20px sans-serif'
+    this.ctx.fillStyle = '#ffffff'
+    this.ctx.fillText(`Your final score: ${this.score}`, 300, 200)
+    this.ctx.fillStyle = 'black'
+
+  }
+
+  //call this function within the obstacles loop above to print something to the screen saying ouch!
+  ouch() {
+    // console.log('crash')
+    this.ctx.fillStyle = 'ff0000'
+    this.ctx.fillRect(0, 0, this.width, this.height)
+
+    this.ctx.font = '20px sans-serif'
+    this.ctx.fillStyle = '#ffffff'
+    this.ctx.fillText("A POLITICAL WITCH HUNT!", 300, 200)
+    this.ctx.fillStyle = 'red'
+
+  }
+
 }

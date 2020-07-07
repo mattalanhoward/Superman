@@ -1,6 +1,8 @@
 window.onload = function () {
-    document.getElementById("start-button").onclick = function() {
+    let start = document.getElementById("start-button");
+    start.onclick = function() {
         startGame();
+        start.innerHTML = "Play Again"
     };
 
     function startGame(){

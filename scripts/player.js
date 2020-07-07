@@ -36,55 +36,12 @@ class Player extends Component {
 }
     
     crashCollision(element){
-        //TOP COLLISION
-        //y axis
-        if(this.y + 10 <= element.y + element.height && this.y >= element.y){
-          //x axis
-          if(this.x + 30 >= element.x && this.x<= element.x + element.width){
-            setTimeout(() => {
-            console.log("top crash");
-            }, 5);
-            //reloads page everytime we crash
-            // window.location.reload();
-            
-          }
-        }
-        //BOTTOM COLLISION
-        //y axis
-        if(this.y + this.height >= element.y && this.y + this.height <= element.y + element.height){
-          //x axis
-          if(this.x + 30 >= element.x && this.x<= element.x + element.width){
-            setTimeout(() => {
-            console.log("bottom crash");
-            }, 5);
-            //reloads page everytime we crash
-            // window.location.reload();
-          }
-        }
-        //RIGHT COLLISION
-        //x axis
-        if(this.x + this.width >= element.x && this.x + this.width <= element.x + element.width){
-            //y axis
-            if(this.y + 80 >= element.y && this.y<= element.y + element.height){
-              setTimeout(() => {
-              console.log("right crash");
-              }, 5);
-              //reloads page everytime we crash
-              // window.location.reload();
-            }
-          }
-        //LEFT COLLISION
-        //x axis
-        if(this.x >= element.x && this.x <= element.x + element.width){
-            //y axis
-            if(this.y + 80 >= element.y && this.y<= element.y + element.height){
-              setTimeout(() => {
-              console.log("left");
-              }, 5);
-              //reloads page everytime we crash
-              // window.location.reload();
-            }
-          }
+      if(this.x < element.x+ element.width && this.x + this.width > element.x && this.y < element.y + element.height && this.height + this.y > element.y) {
+        return true
+      } else { 
+        return false      
       }
+    }
 }
+
 

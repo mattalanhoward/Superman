@@ -31,4 +31,11 @@ class Obstacle extends Component {
             this.x -= 5;
         }
     }
+
+    bounce(){
+            this.x += 10;
+            this.y -= 20;
+    }
+
+    
 }

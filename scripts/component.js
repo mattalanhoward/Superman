@@ -5,8 +5,6 @@ class Component {
         this.y = y;
         this.width = w;
         this.height = h;
-        this.speedX = 1;
-        this.speedY = 1;
         this.img = new Image();
 
     }
