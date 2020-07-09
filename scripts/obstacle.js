@@ -5,17 +5,20 @@ class Obstacle extends Component {
         //new obstacle
         this.x = 700;
         this.y = Math.floor(Math.random() * 300 + 30)
-        this.width = 50;
-        this.height = 30;
+        this.width = 30;
+        this.height = 20;
         this.img = new Image();
     }
     
+
     draw(){
         //access random image
-        const newsArr = ["../images/msnbc.png","../images/nytimes.png","../images/cnn.png"]
-        const randomIdx = Math.floor(Math.random()*3)
-        this.img.src = newsArr[randomIdx]
-        
+        // const newsArr = [""]
+        // const randomIdx = Math.floor(Math.random()*3)
+        // this.img.src = newsArr[randomIdx]
+
+        this.img.src = "../images/kryptonite.png"
+    
         this.game.ctx.drawImage(
             this.img,
             this.x,
@@ -24,6 +27,8 @@ class Obstacle extends Component {
             this.height,
         );
     }
+
+
     //move obstacle
     move(){
         //randomized movement
@@ -31,6 +36,7 @@ class Obstacle extends Component {
             this.x -= 5;
         }
     }
+
 
     bounce(){
             this.x += 200;

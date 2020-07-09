@@ -37,9 +37,15 @@ h1{
     justify-content: center;
 }
 
-#flag, #trump-main{
+#superman{
     /* border:1px solid yellow; */
     width: 250px;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+#lex {
+    width:150px;
     height: auto;
 }
 

@@ -11,7 +11,7 @@ class Player extends Component {
             const key = event.keyCode;
 
             //keycodes for arrows
-            const possibleKeysStrokes = [37,38,39,40];
+            const possibleKeysStrokes = [32,37,38,39,40];
             //includes returns true or false 
             if(possibleKeysStrokes.includes(key)){
                 
@@ -19,16 +19,19 @@ class Player extends Component {
                 //Change the x-= to change the speed of movement
                 switch(key){
                     case 37: 
-                        if(this.x >= 10) this.x -= 20;
+                        if(this.x >= 10) this.x -= 30;
                         break;
                     case 38:
-                        if(this.y >= 10) this.y -= 20;
+                        if(this.y >= 10) this.y -= 30;
                         break;
                     case 39:
-                        if(this.x <= 600 - this.width) this.x += 20;
+                        if(this.x <= 600 - this.width) this.x += 30;
                         break;
                     case 40:
-                        if(this.y <= 380 -this.height) this.y += 20;
+                        if(this.y <= 380 -this.height) this.y += 30;
+                        break;
+                      case 32:
+                        if(this.y <= 380 -this.height) this.x += 90;
                         break;
                 }
             }
