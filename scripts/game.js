@@ -13,6 +13,7 @@ class Game {
         this.height = canvas.height;
         this.time = 0;
         this.level = 500;
+        this.heart = [];
     }
 
     //initialize game
@@ -25,6 +26,7 @@ class Game {
         this.createObstacles();
         this.createClouds();
         this.createBonusItems();
+        this.createHeart();
         
     }
 
@@ -47,7 +49,7 @@ class Game {
             this.time ++
 
             if(this.time % 1000 === 0){
-                this.level -= 100
+                this.level -= 50
             }
 
             this.ctx.font = '20px sans-serif'
@@ -107,6 +109,24 @@ class Game {
                 }
             }
 
+
+            //add heart
+            //loop through array of bonusItems and draw each
+            for(let i = 0;i<this.heart.length;i++){
+                this.heart[i].move();
+                this.heart[i].draw();
+                if(this.character.crashCollision(this.heart[i])){
+                    this.heart[i].collect();
+                    this.lives +=1             
+                };
+                
+                //erase heart after they leave canvas
+                if(this.heart[i].x < -50){
+                this.heart.splice(i,1);
+                }
+            }
+
+
             if(this.lives === 0){
                 clearInterval(idInterval)
                 this.clear()
@@ -115,6 +135,7 @@ class Game {
 
         }, 10);
     }
+            
 
 
 
@@ -151,7 +172,7 @@ class Game {
 
 
     
-    //create clouds
+    //create bonus
     createBonusItems(){
         //randomly if even number create bonusItems
         if(Math.floor(Math.random() * 10) % 2 === 0){
@@ -165,6 +186,24 @@ class Game {
             this.createBonusItems();
         },7000)
         }
+
+
+    //create bonus
+    createHeart(){
+        //randomly if even number create bonusItems
+        if(Math.floor(Math.random() * 10) % 2 === 0){
+        //each time we create heart => push to array
+        this.heart.push(new Heart(this))
+        console.log(`heart --->`, this.heart);
+        }    
+    
+        //recurssion
+        setTimeout(()=>{
+            this.createHeart();
+        },7000)
+        }
+
+
 
     drawBackGround(){
         //link image

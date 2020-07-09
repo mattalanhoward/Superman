@@ -39,7 +39,7 @@ class Player extends Component {
 }
     
     crashCollision(element){
-      if(this.x - 20 < element.x+ element.width && this.x + this.width > element.x && this.y < element.y + element.height && this.height + this.y > element.y) {
+      if(this.x - 10 < element.x+ element.width && this.x + this.width > element.x && this.y < element.y + element.height && this.height + this.y > element.y) {
         return true
       } else { 
         return false      
@@ -48,7 +48,7 @@ class Player extends Component {
 
     bounce() {
       
-        this.x -= 20;
+        this.x -= 30;
         this.y -= 20;
       
     }
