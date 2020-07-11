@@ -5,7 +5,7 @@ class Player extends Component {
         this.RIGHT = false;
         this.UP = false;
         this.DOWN = false;
-        this.speed = 3;
+        this.speed = 4;
     }
 
     // move() {
@@ -125,9 +125,7 @@ class Player extends Component {
               case 83:
                   this.DOWN = false;
                   break;
-                case 32:
-                  if(this.y <= 400 - this.height && this.x <= 600) this.x += 120
-                  break;
+
           }
       }
 };
@@ -145,8 +143,8 @@ class Player extends Component {
 
     bounce() {
       
-        this.x -= 30;
-        this.y -= 20;
+        this.x -= 20;
+        this.y -= 10;
       
     }
 }

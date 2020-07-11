@@ -240,6 +240,10 @@ clear(){
     this.ctx.font = '20px sans-serif'
     this.ctx.fillText("BAM!!", 300, 200)
     
+    // setTimeout(()=>{
+    //     this.ouch();
+    // },10)
+    // this.clear()
   }
 
 final() {

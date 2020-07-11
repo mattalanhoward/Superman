@@ -1,13 +1,17 @@
 window.onload = function () {
-    let start = document.getElementById("start-button");
-    start.onclick = function() {
-        startGame();
-        start.innerHTML = "Play Again?"
-    };
-
+        setTimeout(startGame(),2000);
+}
     function startGame(){
         const myGame = new Game ();
         myGame.init();
 
     }
-};
+
+
+
+
+
+let restart = document.getElementById("restart-button");
+restart.onclick = function() {
+    window.location.reload();
+}
