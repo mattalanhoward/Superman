@@ -1,8 +1,8 @@
 Project Name
-"Donald Trump Defends America from the "Fake News" media"
+"Superman!"
 
 Description
-Donald Trump is here to defend America from the Fake News Media.  Move Trump up and down to dodge "Fake News" sources as if they were draft cards for the Vietnam war.  
+Superman is flying faster than a speeding bullet.  Watch out for the kryptonite!  Collect hearts for extra lives.  Capture Lex Luthor for bonus points
 
 
 MVP (DOM - CANVAS)
@@ -10,19 +10,16 @@ MVP definition, deliverables.
 
 
 The MVP is to create a player object that dodges other objects.  
-3 "Fake News" hit Trump. => Game Over.
 
+Score Screen - display at Game Over the score.
+
+Number of obstacles increases difficulty
 
 Backlog
-Score Screen - display at Game Over the number of "Fake News" shots.
-
-Adjust speed of obstacles to increase difficulty
-
 Add Soundbytes from Trump on score screen based on score. 
 
-Create projectile to shoot "Fake News"
+Create projectile to shoot "krytonite"
 
-If "Fake News" gets by Trump he loses 1 power and shrinks in size.  If he collects "Real News", he gains 1 power and grows in size.  Start size is 2, Max is 3, 0 => Game Over. 
 
 
 
@@ -55,7 +52,7 @@ removeGameOverScreen(){
 game.js
 Game(){
   this.canvas;
-  this.babyTrump;
+  this.Superman;
 }
 
 init()
@@ -150,9 +147,6 @@ move()
 } -->
 
 
-
-<!-- checkifPassedTrump() -->
-
 <!-- bounceBack() -->
 
 
@@ -209,10 +203,11 @@ clouds - move
 
 Links
 Trello
-https://trello.com/b/7ODd01dz/trump-defends-america
+https://trello.com/b/7ODd01dz/superman
 
 Git
 URLs for the project repo and deploy
+
 
 Link Repo 
 https://github.com/mattalanhoward/project-1-DOM-Canvas-game
