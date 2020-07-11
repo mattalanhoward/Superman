@@ -1,6 +1,6 @@
 class Player extends Component {
-    constructor(game, x, y, w, h){
-        super(game, x, y, w, h);
+    constructor(game, x, y, w, h, speed){
+        super(game, x, y, w, h, speed);
     }
 
     //move player
@@ -20,19 +20,19 @@ class Player extends Component {
                 switch(key){
                     case 37:
                     case 65: 
-                        if(this.x >= 20) this.x -= 30;
+                        if(this.x >= 20) this.x -= this.speed * 30;
                         break;
                     case 38:
                     case 87:
-                        if(this.y >= 20) this.y -= 30;
+                        if(this.y >= 20) this.y -= this.speed * 30;
                         break;
                     case 39:
                     case 68:
-                        if(this.x <= 600 - this.width) this.x += 30;
+                        if(this.x <= 600 - this.width) this.x += this.speed * 30;
                         break;
                     case 40:
                     case 83:
-                        if(this.y <= 380 - this.height) this.y += 30;
+                        if(this.y <= 380 - this.height) this.y += this.speed * 30;
                         break;
                       case 32:
                         if(this.y <= 400 - this.height && this.x <= 600) this.x += 120

@@ -1,11 +1,12 @@
 class Component {
-    constructor(game, x, y, w, h,speedX,speedY){
+    constructor(game, x, y, w, h){
         this.game = game;
         this.x = x;
         this.y = y;
         this.width = w;
         this.height = h;
         this.img = new Image();
+        this.speed = 1;
 
     }
     
