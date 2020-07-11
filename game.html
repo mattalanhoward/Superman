@@ -10,7 +10,11 @@
 <body>
 
     <h1>Superman</h1>
-        <img id ='logo' src="./images/superman-logo.png" alt="Superman Logo">
+    
+    
+    <canvas id="canvas" width="800" height="400"></canvas>
+
+
 
     <main id="main-container">
             <img id="superman" src="./images/flying-super-man.png" alt="Superman"/>
@@ -22,7 +26,8 @@
                 Capture Lex Luthor for a bonus. <br>
                 </p>
                 <div id="buttons">
-                <button id="start-button" class='btn btn-secondary m-2'>Start Game</button>
+                <button id="pause" class='btn btn-secondary m-2'>Pause</button>
+                <button id="restart-button" class='btn btn-secondary m-2'>Restart</button>
             </div>
             </div>
             <img id="lex" src="./images/Lex.png" alt="Lex Luthor"/>
@@ -33,7 +38,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="/scripts/splash.js"></script>
+    <script type="text/javascript" src="./scripts/game.js"></script>
+    <script type="text/javascript" src="./scripts/script.js"></script>
+    <script type="text/javascript" src="./scripts/component.js"></script>
+    <script type="text/javascript" src="./scripts/player.js"></script>
+    <script type="text/javascript" src="./scripts/obstacle.js"></script>
+    <script type="text/javascript" src="./scripts/clouds.js"></script>
+    <script type="text/javascript" src="./scripts/bonus.js"></script>
+    <script type="text/javascript" src="./scripts/heart.js"></script>
 
 
 </body>

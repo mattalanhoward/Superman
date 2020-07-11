@@ -233,10 +233,7 @@ clear(){
 
     this.lives --;
     //flash screen red when hit
-    this.ctx.fillStyle = 'red'
-    this.ctx.fillRect(0, 0, this.width, this.height)
-    this.ctx.clearRect(0,0,this.width,this.height)
-        
+    this.ctx.fillStyle = 'red'        
     this.ctx.font = '20px sans-serif'
     this.ctx.fillText("BAM!!", 300, 200)
     
