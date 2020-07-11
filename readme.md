@@ -207,7 +207,7 @@ https://trello.com/b/7ODd01dz/superman
 
 Git
 URLs for the project repo and deploy
-
+https://mattalanhoward.github.io/project-1-DOM-Canvas-game/
 
 Link Repo 
 https://github.com/mattalanhoward/project-1-DOM-Canvas-game
