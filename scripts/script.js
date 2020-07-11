@@ -1,5 +1,5 @@
 window.onload = function () {
-        setTimeout(startGame(),2000);
+    setTimeout(startGame(),2000);
 }
     function startGame(){
         const myGame = new Game ();

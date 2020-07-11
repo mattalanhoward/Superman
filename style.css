@@ -39,14 +39,21 @@ h1{
 
 #superman{
     /* border:1px solid yellow; */
-    width: 250px;
-    height: auto;
+    width: auto;
+    height: 200px;
     margin-bottom: 30px;
 }
 
 #lex {
-    width:150px;
+    width:auto;
+    height: 200px;
+    padding:0 40px;
+}
+
+#logo {
+    width: 350px;
     height: auto;
+    margin: 0 auto;
 }
 
 /* #canvas {

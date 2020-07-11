@@ -247,13 +247,14 @@ clear(){
   }
 
 final() {
-    this.ctx.fillStyle = 'black'
-    this.ctx.fillRect(0, 0, this.width, this.height)
-    this.ctx.font = '20px sans-serif'
-    this.ctx.fillStyle = '#ffffff'
-    this.ctx.fillText(`Score: ${this.score}`, 375, 200)
-    this.ctx.fillText('"Superman is dead"', 325, 250)
-
+    // this.ctx.fillStyle = 'black'
+    // this.ctx.fillRect(0, 0, this.width, this.height)
+    // this.ctx.font = '20px sans-serif'
+    // this.ctx.fillStyle = '#ffffff'
+    // this.ctx.fillText(`Score: ${this.score}`, 375, 200)
+    // this.ctx.fillText('"Superman is dead"', 325, 250)
+    window.close
+    window.open('../gameover.html', '_self',false)
 
   }
 

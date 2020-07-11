@@ -1,15 +1,11 @@
 window.onload = function () {
-    let start = document.getElementById("start-button");
-    start.onclick = function() {
-        console.log('button click')
+    let playAgain = document.getElementById("playAgain");
+    playAgain.onclick = function() {
         startGame();
     };
 
     function startGame(){
         window.close
         window.open('../index.html', '_self',false)
-
     }
-
-
 };

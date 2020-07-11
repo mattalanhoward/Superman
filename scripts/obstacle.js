@@ -5,18 +5,13 @@ class Obstacle extends Component {
         //new obstacle
         this.x = 700;
         this.y = Math.floor(Math.random() * 300 + 30)
-        this.width = 30;
-        this.height = 20;
+        this.width = 15;
+        this.height = 15;
         this.img = new Image();
     }
     
 
     draw(){
-        //access random image
-        // const newsArr = [""]
-        // const randomIdx = Math.floor(Math.random()*3)
-        // this.img.src = newsArr[randomIdx]
-
         this.img.src = "../images/kryptonite.png"
     
         this.game.ctx.drawImage(

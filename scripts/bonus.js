@@ -5,7 +5,7 @@ class Bonus extends Component {
         //new bonus
         this.x = 700;
         this.y = Math.floor(Math.random() * 300 + 30)
-        this.width = 50;
+        this.width = 25;
         this.height = 50;
         this.img = new Image();
     }
