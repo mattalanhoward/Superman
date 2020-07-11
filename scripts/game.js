@@ -44,7 +44,6 @@ class Game {
             this.drawMainCharacter();
             //call move function to move character
             this.character.move();
-
             //add time
             this.time ++
 
