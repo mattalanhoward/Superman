@@ -14,6 +14,7 @@ class Game {
         this.time = 0;
         this.level = 500;
         this.heart = [];
+        this.teleport = 5;
     }
 
     //initialize game
@@ -57,6 +58,8 @@ class Game {
             this.ctx.fillText(`Score: ${this.score}`, 20, 80)
             this.ctx.fillText(`Hits Left: ${this.lives}`, 20, 50)
             this.ctx.fillText(`Time: ${this.time}`, 20, 110)
+            this.ctx.fillText(`Teleport: ${this.teleport}`, 20, 140)
+
 
             
     
@@ -145,6 +148,7 @@ class Game {
         if(Math.floor(Math.random() * 10) % 2 === 0){
         //each time we create obstacle => push to array
         this.obstacles.push(new Obstacle(this))
+        console.log(`obstacles --->`, this.obstacles)
         }
 
     //recurssion
@@ -161,7 +165,7 @@ class Game {
         if(Math.floor(Math.random() * 10) % 2 === 0){
         //each time we create cloud => push to array
         this.clouds.push(new Clouds(this))
-        // console.log(`clouds --->`, this.clouds);
+        console.log(`clouds --->`, this.clouds);
         }    
 
     //recurssion
@@ -178,7 +182,7 @@ class Game {
         if(Math.floor(Math.random() * 10) % 2 === 0){
         //each time we create bonusItems => push to array
         this.bonusItems.push(new Bonus(this))
-        // console.log(`bonusItems --->`, this.bonusItems);
+        console.log(`bonusItems --->`, this.bonusItems);
         }    
     
         //recurssion
