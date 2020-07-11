@@ -54,8 +54,8 @@ class Game {
             this.ctx.font = '20px sans-serif'
             this.ctx.fillStyle = '#ffffff'
             this.ctx.fillText(`Score: ${this.score}`, 20, 80)
-            this.ctx.fillText(`Hits Left: ${this.lives}`, 20, 50)
-            this.ctx.fillText(`Time: ${this.time}`, 20, 110)
+            this.ctx.fillText(`Lives Left: ${this.lives}`, 20, 50)
+            // this.ctx.fillText(`Time: ${this.time}`, 20, 110)
 
 
             
@@ -168,7 +168,7 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createClouds();
-    },2000)
+    },1000)
     }
 
 
