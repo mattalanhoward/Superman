@@ -3,7 +3,7 @@ class Clouds extends Component {
         super(game);
         //things to change from the constructor
         //new cloud
-        this.x = 700;
+        this.x = 850;
         this.y = Math.floor(Math.random() * 300 + 30)
         this.width = 100;
         this.height = 80;
@@ -25,7 +25,7 @@ class Clouds extends Component {
     move(){
         //randomized movement
         if(Math.floor(Math.random() * 20) % 3 === 0){
-            this.x -= 2;
+            this.x -= 5;
         }
     }
 }

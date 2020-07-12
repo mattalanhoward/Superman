@@ -38,27 +38,25 @@ class Game {
         const idInterval = setInterval(() => {
             //clear canvas
             this.clear();
+            
             //draw back ground
             this.drawBackGround();
+            
             //draw character
             this.drawMainCharacter();
+            
             //call move function to move character
             this.character.move();
+            
             //add time
             this.time ++
-
-            if(this.time % 1000 === 0){
-                this.level -= 50
-            }
-
-            this.ctx.font = '20px sans-serif'
-            this.ctx.fillStyle = '#ffffff'
-            this.ctx.fillText(`Score: ${this.score}`, 20, 80)
-            this.ctx.fillText(`Lives Left: ${this.lives}`, 20, 50)
-            // this.ctx.fillText(`Time: ${this.time}`, 20, 110)
-
-
             
+            //update level
+            this.updateLevel();
+            
+            //draw stats
+            this.stats();
+
     
             //add clouds
             //loop through array of clouds and draw each
@@ -133,7 +131,7 @@ class Game {
                 this.final();
             }
 
-        }, 10);
+        }, 1);
     }
             
 
@@ -142,7 +140,7 @@ class Game {
     //create obstacle
     createObstacles(){
         //randomly if even number create obstacle
-        if(Math.floor(Math.random() * 10) % 2 === 0){
+        if(Math.floor(Math.random() * 10) % 3 === 0){
         //each time we create obstacle => push to array
         this.obstacles.push(new Obstacle(this))
         console.log(`obstacles --->`, this.obstacles)
@@ -168,7 +166,7 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createClouds();
-    },1000)
+    },300)
     }
 
 
@@ -204,8 +202,23 @@ class Game {
         },7000)
         }
 
+    //updateLevel
+    updateLevel () {
+        if(this.time % 1000 === 0){
+            this.level -= 50
+        }
+    }
 
+    //draw stats
+    stats () {
+        this.ctx.font = '20px sans-serif'
+        this.ctx.fillStyle = '#ffffff'
+        this.ctx.fillText(`Score: ${this.score}`, 20, 80)
+        this.ctx.fillText(`Lives Left: ${this.lives}`, 20, 50)
+        // this.ctx.fillText(`Time: ${this.time}`, 20, 110)
+    }
 
+    //draw background
     drawBackGround(){
         //link image
         this.backgroundImg.src = "../images/blue-sky.png";
@@ -219,42 +232,34 @@ class Game {
         );
     }
 
-drawMainCharacter(){
+    //draw character
+    drawMainCharacter(){
     this.character.drawComponent("../images/flying-super-man.png")
-}
+    }
 
-clear(){
+    clear(){
     //clear canvas function
     this.ctx.clearRect(this.x, this.y, this.width, this.height)
-}
+    }
 
-  //call this function within the obstacles loop above to print something to the screen saying ouch!
-  ouch() {
+    //call this function within the obstacles loop above to print something to the screen saying ouch!
+    ouch() {
 
+    
     this.lives --;
     //flash screen red when hit
     this.ctx.fillStyle = 'red'        
     this.ctx.font = '20px sans-serif'
     this.ctx.fillText("BAM!!", 300, 200)
     
-    // setTimeout(()=>{
-    //     this.ouch();
-    // },10)
-    // this.clear()
-  }
+    }
 
-final() {
-    // this.ctx.fillStyle = 'black'
-    // this.ctx.fillRect(0, 0, this.width, this.height)
-    // this.ctx.font = '20px sans-serif'
-    // this.ctx.fillStyle = '#ffffff'
-    // this.ctx.fillText(`Score: ${this.score}`, 375, 200)
-    // this.ctx.fillText('"Superman is dead"', 325, 250)
-    window.close
-    window.open('../gameover.html', '_self',false)
+    final() {
+
+    setTimeout(window.close,3000)
+    setTimeout(window.open('../gameover.html', '_self',false),3000)
 
   }
-
 
 
 }

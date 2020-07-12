@@ -14,7 +14,7 @@ h1{
     width: 95%;
     text-align: center;
     padding: 10px;
-    margin: 10px auto;
+    margin: 10px auto ;
     border-bottom: 1px solid rgb(255,255,255);
     font-family: 'Times New Roman', 'Times New Roman', Times, serif;
     
@@ -53,7 +53,7 @@ h1{
 #logo {
     width: 350px;
     height: auto;
-    margin: 0 auto;
+    margin: 0 auto 30px;
 }
 
 #buttons {

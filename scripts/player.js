@@ -5,7 +5,7 @@ class Player extends Component {
         this.RIGHT = false;
         this.UP = false;
         this.DOWN = false;
-        this.speed = 4;
+        this.speed = 2;
     }
 
     // move() {
@@ -51,15 +51,30 @@ class Player extends Component {
       if(this.LEFT) { 
         if(this.x >= 20) this.x -= this.speed;
       }
+        // if(this.x <= 20) {this.x = 600}
+
       if(this.RIGHT) {
         if(this.x <= 600 - this.width) this.x += this.speed;	
       }
+      
       if(this.UP) { 
-        if(this.y >= 20) this.y -= this.speed;
+        this.y -= this.speed;
       }
+      
+      // //TOP TO BOTTOM
+      if(this.y < -10) {
+        this.y = 400 - this.height
+      }
+
       if(this.DOWN) {
-        if(this.y <= 380 - this.height) this.y += this.speed;	
+        this.y += this.speed;	
       }
+
+      // BOTTOM TO TOP
+      if(this.y > 400 - this.height) {
+        this.y = -10
+      }
+
         document.onkeydown = event => {
             event.preventDefault() // stops the button scrolling the page
 

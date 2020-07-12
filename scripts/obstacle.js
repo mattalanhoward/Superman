@@ -3,7 +3,7 @@ class Obstacle extends Component {
         super(game);
         //things to change from the constructor
         //new obstacle
-        this.x = 700;
+        this.x = 850;
         this.y = Math.floor(Math.random() * 300 + 30)
         this.width = 15;
         this.height = 15;
