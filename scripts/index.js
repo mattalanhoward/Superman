@@ -10,6 +10,4 @@ window.onload = function () {
         window.open('../game.html', '_self',false)
 
     }
-
-
 };

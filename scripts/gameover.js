@@ -9,7 +9,7 @@ window.onload = function () {
         window.open('../game.html', '_self',false)
     }
 
-    let user = document.getElementById("userName").value;
+    // let user = document.getElementById("userName").value;
 
-    alert(user)
+    // alert(user)
 };
