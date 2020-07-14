@@ -8,4 +8,8 @@ window.onload = function () {
         window.close
         window.open('../game.html', '_self',false)
     }
+
+    let user = document.getElementById("userName").value;
+
+    alert(user)
 };
