@@ -7,7 +7,7 @@ window.onload = function () {
 
     function startGame(){
         window.close
-        window.open('../game.html', '_self',false)
+        window.open('game.html', '_self',false)
 
     }
 };

@@ -260,7 +260,7 @@ class Game {
     final() {
 
     setTimeout(window.close,3000)
-    setTimeout(window.open('../gameover.html', '_self',false),3000)
+    setTimeout(window.open('gameover.html', '_self',false),3000)
     const userName = prompt("Enter your name")
     localStorage.setItem(
     "scoreboard",

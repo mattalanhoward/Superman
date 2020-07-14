@@ -6,7 +6,7 @@ window.onload = function () {
 
     function startGame(){
         window.close
-        window.open('../index.html', '_self',false)
+        window.open('index.html', '_self',false)
     }
 
     var newScore = localStorage.getItem('scoreboard');
