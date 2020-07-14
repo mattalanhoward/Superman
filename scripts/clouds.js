@@ -11,7 +11,7 @@ class Clouds extends Component {
     }
     draw(){
         //access image
-        this.img.src = "../images/cloud1.png";
+        this.img.src = "images/cloud1.png";
         //draw cloud
         this.game.ctx.drawImage(
             this.img,

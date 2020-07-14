@@ -11,7 +11,7 @@ class Heart extends Component {
     }
     draw(){
         //access image
-        this.img.src = "../images/heart.png";
+        this.img.src = "images/heart.png";
         //draw bonus
         this.game.ctx.drawImage(
             this.img,

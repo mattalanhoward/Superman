@@ -14,8 +14,7 @@ window.onload = function () {
     console.log(newScore)
 
     let scoreboard = document.getElementById("scoreboard");
-    var li = document.createElement("li");
-    li.appendChild(document.createElement(newScore));
-    scoreboard.appendChild(li);
+    // var li = document.createElement("li");
+    scoreboard.appendChild(newScore);
  
 };

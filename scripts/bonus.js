@@ -11,7 +11,7 @@ class Bonus extends Component {
     }
     draw(){
         //access image
-        this.img.src = "../images/Lex.png";
+        this.img.src = "images/Lex.png";
         //draw bonus
         this.game.ctx.drawImage(
             this.img,

@@ -261,7 +261,7 @@ class Game {
 
     setTimeout(window.close,3000)
     setTimeout(window.open('gameover.html', '_self',false),3000)
-    const userName = prompt("Enter your name")
+    const userName = document.getElementById("name")
     localStorage.setItem(
     "scoreboard",
     JSON.stringify([{name: userName, score: this.score}])
