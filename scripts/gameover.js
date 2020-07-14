@@ -6,10 +6,16 @@ window.onload = function () {
 
     function startGame(){
         window.close
-        window.open('../game.html', '_self',false)
+        window.open('../index.html', '_self',false)
     }
 
-    // let user = document.getElementById("userName").value;
+    var newScore = localStorage.getItem('scoreboard');
 
-    // alert(user)
+    console.log(newScore)
+
+    let scoreboard = document.getElementById("scoreboard");
+    var li = document.createElement("li");
+    li.appendChild(document.createElement(newScore));
+    scoreboard.appendChild(li);
+ 
 };

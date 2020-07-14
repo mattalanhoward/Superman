@@ -8,7 +8,7 @@ class Game {
         this.clouds = [];
         this.backgroundImg = new Image();
         this.score = 0;
-        this.lives = 3;
+        this.lives = 1;
         this.width = canvas.width;
         this.height = canvas.height;
         this.time = 0;
@@ -131,7 +131,10 @@ class Game {
                 this.final();
             }
 
+            
+
         }, 1);
+        
     }
             
 
@@ -258,6 +261,11 @@ class Game {
 
     setTimeout(window.close,3000)
     setTimeout(window.open('../gameover.html', '_self',false),3000)
+    const userName = prompt("Enter your name")
+    localStorage.setItem(
+    "scoreboard",
+    JSON.stringify([{name: userName, score: this.score}])
+)
 
   }
 
