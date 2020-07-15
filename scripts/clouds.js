@@ -9,6 +9,8 @@ class Clouds extends Component {
         this.height = 80;
         this.img = new Image();
     }
+
+    //create draw function
     draw(){
         //access image
         this.img.src = "images/cloud1.png";
@@ -21,9 +23,10 @@ class Clouds extends Component {
             this.height,
         );
     }
+
     //move cloud
     move(){
-        //randomized movement
+        //randomized placement
         if(Math.floor(Math.random() * 20) % 3 === 0){
             this.x -= 5;
         }

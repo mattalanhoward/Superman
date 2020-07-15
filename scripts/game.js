@@ -1,4 +1,5 @@
 class Game {
+    //construct new game object
     constructor(){
         this.canvas = undefined;
         this.ctx = undefined;
@@ -8,11 +9,11 @@ class Game {
         this.clouds = [];
         this.backgroundImg = new Image();
         this.score = 0;
-        this.lives = 1;
+        this.lives = 3;
         this.width = canvas.width;
         this.height = canvas.height;
-        this.time = 0;
-        this.level = 500;
+        this.distance= 0;
+        this.level = 1000;
         this.heart = [];
     }
 
@@ -32,10 +33,19 @@ class Game {
 
     //start game
     start() {
-        this.drawBackGround();
-        this.drawMainCharacter();
-        //set frame refresh => can also use request animation frame
+
+        //*********************CHECK THIS (DON'T THINK I NEED THEM************************)
+        // //draw background
+        // this.drawBackGround();
+
+        // //draw main character
+        // this.drawMainCharacter();
+
+        //set frame refresh (can also be done with requestAnimationFrame)
         const idInterval = setInterval(() => {
+
+            // CALL VARIOUS GAME FUNCTIONS.
+
             //clear canvas
             this.clear();
             
@@ -45,11 +55,11 @@ class Game {
             //draw character
             this.drawMainCharacter();
             
-            //call move function to move character
+            //call charactermove function to move character
             this.character.move();
             
-            //add time
-            this.time ++
+            //increment distance
+            this.distance ++
             
             //update level
             this.updateLevel();
@@ -57,88 +67,31 @@ class Game {
             //draw stats
             this.stats();
 
+            //addClouds
+            this.addClouds();
+
+            //addObstacles
+            this.addObstacles();
     
-            //add clouds
-            //loop through array of clouds and draw each
-            for(let i = 0;i<this.clouds.length;i++){
-                this.clouds[i].move();
-                this.clouds[i].draw();
-                //erase clouds after they leave canvas
-                if(this.clouds[i].x < -50){
-                this.clouds.splice(i,1);
-                }
-            }
-
-
-
-            //add obstacles
-            //loop through array of obstacles and draw each
-            for(let i = 0;i<this.obstacles.length;i++){
-                this.obstacles[i].move();
-                this.obstacles[i].draw();
-                if(this.character.crashCollision(this.obstacles[i])){
-                    this.obstacles[i].bounce();
-                    this.character.bounce();                    
-                    this.ouch();
-                };
-
-                //erase obstacles after they leave canvas
-                if(this.obstacles[i].x < -50){
-                this.score ++
-                this.obstacles.splice(i,1);
-                }
-            }
-
-
-
             //add bonusItems
-            //loop through array of bonusItems and draw each
-            for(let i = 0;i<this.bonusItems.length;i++){
-                this.bonusItems[i].move();
-                this.bonusItems[i].draw();
-                if(this.character.crashCollision(this.bonusItems[i])){
-                    this.bonusItems[i].collect();
-                    this.score +=10                 
-                };
-                
-                //erase bonus after they leave canvas
-                if(this.bonusItems[i].x < -50){
-                this.bonusItems.splice(i,1);
-                }
-            }
-
-
-            //add heart
-            //loop through array of bonusItems and draw each
-            for(let i = 0;i<this.heart.length;i++){
-                this.heart[i].move();
-                this.heart[i].draw();
-                if(this.character.crashCollision(this.heart[i])){
-                    this.heart[i].collect();
-                    this.lives +=1             
-                };
-                
-                //erase heart after they leave canvas
-                if(this.heart[i].x < -50){
-                this.heart.splice(i,1);
-                }
-            }
-
-
+            this.addBonusItems()
+            
+            //addHeart
+            this.addHeart();
+            
+            //endGame
             if(this.lives === 0){
                 clearInterval(idInterval)
                 this.clear()
                 this.final();
             }
-
             
-
-        }, 1);
+        }, 5);
         
     }
             
 
-
+    //WRITE FUNCTIONS
 
     //create obstacle
     createObstacles(){
@@ -152,10 +105,8 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createObstacles();
-    },this.level)
+    },this.level/2)
     }
-
-
 
     //create clouds
     createClouds(){
@@ -164,16 +115,15 @@ class Game {
         //each time we create cloud => push to array
         this.clouds.push(new Clouds(this))
         console.log(`clouds --->`, this.clouds);
+        console.log(`clouds height--->`,this.clouds.height)
         }    
 
     //recurssion
     setTimeout(()=>{
         this.createClouds();
-    },300)
+    },this.level/3)
     }
 
-
-    
     //create bonus
     createBonusItems(){
         //randomly if even number create bonusItems
@@ -186,14 +136,13 @@ class Game {
         //recurssion
         setTimeout(()=>{
             this.createBonusItems();
-        },7000)
-        }
-
+        },this.level*7)
+    }
 
     //create bonus
     createHeart(){
-        //randomly if even number create bonusItems
-        if(Math.floor(Math.random() * 10) % 2 === 0){
+        //randomly if 
+        if(Math.floor(Math.random() * 2) % 2 === 0){
         //each time we create heart => push to array
         this.heart.push(new Heart(this))
         console.log(`heart --->`, this.heart);
@@ -202,12 +151,89 @@ class Game {
         //recurssion
         setTimeout(()=>{
             this.createHeart();
-        },7000)
-        }
+        },this.level*10)
+    }
 
-    //updateLevel
+    //add clouds
+    addClouds(){
+        //loop through array of clouds and draw each
+        for(let i = 0;i<this.clouds.length;i++){
+            this.clouds[i].move();
+            this.clouds[i].draw();
+
+            //erase clouds after they leave canvas
+            if(this.clouds[i].x < -50){
+            this.clouds.splice(i,1);
+            }
+        }
+    };
+
+    //add obstacles
+    addObstacles(){
+        //loop through array of obstacles and draw each
+        for(let i = 0;i<this.obstacles.length;i++){
+            this.obstacles[i].move();
+            this.obstacles[i].draw();
+            
+            //check collision
+            if(this.character.crashCollision(this.obstacles[i])){
+                this.hit();
+                this.ouch();
+                this.obstacles[i].bounce();
+                this.character.bounce();                        
+                };
+
+            //erase obstacles after they leave canvas
+            if(this.obstacles[i].x < -50){
+            this.score ++
+            this.obstacles.splice(i,1);
+            }
+        }
+    };
+
+    //add bonusItems
+    addBonusItems(){
+        //loop through array of bonusItems and draw each
+        for(let i = 0;i<this.bonusItems.length;i++){
+            this.bonusItems[i].move();
+            this.bonusItems[i].draw();
+
+            //check collision
+            if(this.character.crashCollision(this.bonusItems[i])){
+                this.bonusItems[i].collect();
+                this.score +=10                 
+            };
+                
+            //erase bonus after they leave canvas
+            if(this.bonusItems[i].x < -50){
+            this.bonusItems.splice(i,1);
+            }
+        }
+    };
+
+    //add heart
+    addHeart(){
+        //loop through array of bonusItems and draw each
+        for(let i = 0;i<this.heart.length;i++){
+            this.heart[i].move();
+            this.heart[i].draw();
+            
+            //check collision
+            if(this.character.crashCollision(this.heart[i])){
+                this.heart[i].collect();
+                this.lives +=1             
+            };
+                
+            //erase heart after they leave canvas
+            if(this.heart[i].x < -50){
+            this.heart.splice(i,1);
+            }
+        }
+    };
+
+    //updateLevel every 5 seconds subtract 50 from level.  This decreases time between obstacles
     updateLevel () {
-        if(this.time % 1000 === 0){
+        if(this.distance % 5000 === 0){
             this.level -= 50
         }
     }
@@ -218,7 +244,7 @@ class Game {
         this.ctx.fillStyle = '#ffffff'
         this.ctx.fillText(`Score: ${this.score}`, 20, 80)
         this.ctx.fillText(`Lives Left: ${this.lives}`, 20, 50)
-        // this.ctx.fillText(`Time: ${this.time}`, 20, 110)
+        this.ctx.fillText(`Distance : ${this.distance} meters`, 20, 110)
     }
 
     //draw background
@@ -237,7 +263,7 @@ class Game {
 
     //draw character
     drawMainCharacter(){
-    this.character.drawComponent("../images/flying-super-man.png")
+    this.character.drawComponent("images/flying-super-man.png")
     }
 
     clear(){
@@ -245,28 +271,29 @@ class Game {
     this.ctx.clearRect(this.x, this.y, this.width, this.height)
     }
 
-    //call this function within the obstacles loop above to print something to the screen saying ouch!
-    ouch() {
-
-    
-    this.lives --;
-    //flash screen red when hit
-    this.ctx.fillStyle = 'red'        
-    this.ctx.font = '20px sans-serif'
-    this.ctx.fillText("BAM!!", 300, 200)
-    
+    //subtract 1 from lives
+    hit(){
+        //subtract 1 from lives
+        this.lives--;
     }
 
-    final() {
+    //call this function within the obstacles loop above to print something to the screen saying ouch!
+    ouch() {
+    //flash screen red when hit
+    this.ctx.fillStyle = 'red'        
+    this.ctx.font = '100px sans-serif'
+    this.ctx.fillText("BAM!!", 300, 200)
+    }
 
+    //Gameover function
+    final() {
+      this.scoreboard =  JSON.parse(localStorage.getItem("scoreboard"))
+       scoreboard[scoreboard.length - 1].score = this.score;
+       localStorage.setItem("scoreboard",JSON.stringify(scoreboard))
+    
     setTimeout(window.close,3000)
     setTimeout(window.open('gameover.html', '_self',false),3000)
-    const userName = document.getElementById("name")
-    localStorage.setItem(
-    "scoreboard",
-    JSON.stringify([{name: userName, score: this.score}])
-)
-
+    
   }
 
 

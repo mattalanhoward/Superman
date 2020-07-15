@@ -111,6 +111,7 @@ class Player extends Component {
             }
     };
 
+    
     document.onkeyup = event => {
       event.preventDefault() // stops the button scrolling the page
 

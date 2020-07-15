@@ -10,10 +10,9 @@ class Obstacle extends Component {
         this.img = new Image();
     }
     
-
+    //create draw image function
     draw(){
         this.img.src = "images/kryptonite.png"
-    
         this.game.ctx.drawImage(
             this.img,
             this.x,
@@ -26,13 +25,13 @@ class Obstacle extends Component {
 
     //move obstacle
     move(){
-        //randomized movement
+        //randomized placement
         if(Math.floor(Math.random() * 20) % 3 === 0){
             this.x -= 5;
         }
     }
 
-
+    //moves obstacle out of view after collision
     bounce(){
             this.x += 200;
             this.y += 2000;
