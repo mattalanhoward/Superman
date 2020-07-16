@@ -9,12 +9,13 @@ class Game {
         this.clouds = [];
         this.backgroundImg = new Image();
         this.score = 0;
-        this.lives = 3;
+        this.lives = 2;
         this.width = canvas.width;
         this.height = canvas.height;
         this.distance= 0;
         this.level = 1000;
         this.heart = [];
+        this.scoreboard = [];
     }
 
     //initialize game
@@ -28,6 +29,7 @@ class Game {
         this.createClouds();
         this.createBonusItems();
         this.createHeart();
+
         
     }
 
@@ -80,16 +82,18 @@ class Game {
             this.addHeart();
             
             //endGame
-            if(this.lives === 0){
+            if(this.lives < 0){
                 clearInterval(idInterval)
                 this.clear()
                 this.final();
             }
+
+            
             
         }, 5);
         
     }
-            
+    
 
     //WRITE FUNCTIONS
 
@@ -279,17 +283,22 @@ class Game {
 
     //call this function within the obstacles loop above to print something to the screen saying ouch!
     ouch() {
-    //flash screen red when hit
-    this.ctx.fillStyle = 'red'        
-    this.ctx.font = '100px sans-serif'
-    this.ctx.fillText("BAM!!", 300, 200)
+        //flash screen red when hit
+        this.ctx.fillStyle = 'red'        
+        this.ctx.font = '100px sans-serif'
+        this.ctx.fillText("BAM!!", 300, 200)
     }
 
     //Gameover function
     final() {
-      this.scoreboard =  JSON.parse(localStorage.getItem("scoreboard"))
-       scoreboard[scoreboard.length - 1].score = this.score;
-       localStorage.setItem("scoreboard",JSON.stringify(scoreboard))
+        //getitem scoreboard
+        this.scoreboard =  JSON.parse(localStorage.getItem("scoreboard"))
+
+        //add new score to scoreboard
+        this.scoreboard[this.scoreboard.length - 1].score = this.score;
+
+        //set localstorage with new score
+        localStorage.setItem("scoreboard",JSON.stringify(this.scoreboard))
     
     setTimeout(window.close,3000)
     setTimeout(window.open('gameover.html', '_self',false),3000)
@@ -298,3 +307,9 @@ class Game {
 
 
 }
+
+// let pause = document.getElementById("pause");
+// pause.onclick = function() {
+// console.log('pause')
+// clearInterval(Game.idInterval)
+// }

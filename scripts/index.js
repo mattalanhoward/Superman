@@ -27,6 +27,7 @@ window.onload = function () {
         //open game.html in same tab to begin game.
         window.open('game.html', '_self',false)
         
+
     }
 
 };

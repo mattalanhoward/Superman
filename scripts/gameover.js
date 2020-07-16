@@ -16,14 +16,18 @@ window.onload = function () {
     }
 
     //get item scoreboard from local storage and store value in newScore
+    //this is the updated scoreboard array of objects
     var newScore = localStorage.getItem('scoreboard');
 
     console.log(newScore)
 
     //get scoreboard from gameover.html
+    //this is the ul list with the id of scoreboard
     let scoreboard = document.getElementById("scoreboard");
-
-    //append scoreboard object to scoreboard list
-    scoreboard.appendChild(newScore);
+    console.log(scoreboard)
+    
+    //append newScore object to scoreboard list
+    // scoreboard.appendChild(newScore);
+    
  
 };
