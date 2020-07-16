@@ -16,6 +16,8 @@ class Game {
         this.level = 1000;
         this.heart = [];
         this.scoreboard = [];
+        this.pause = false;
+        this.pauseButton = document.getElementById("pause");
     }
 
     //initialize game
@@ -24,6 +26,7 @@ class Game {
         this.ctx = this.canvas.getContext("2d");
         this.x = 0;
         this.y = 0;
+        this.setEventListenerPauseButton()
         this.start();
         this.createObstacles();
         this.createClouds();
@@ -44,6 +47,7 @@ class Game {
         // this.drawMainCharacter();
 
         //set frame refresh (can also be done with requestAnimationFrame)
+        
         const idInterval = setInterval(() => {
 
             // CALL VARIOUS GAME FUNCTIONS.
@@ -56,43 +60,51 @@ class Game {
             
             //draw character
             this.drawMainCharacter();
-            
-            //call charactermove function to move character
-            this.character.move();
-            
-            //increment distance
-            this.distance ++
-            
-            //update level
-            this.updateLevel();
-            
-            //draw stats
-            this.stats();
 
-            //addClouds
-            this.addClouds();
+            console.log(`outside if`,this.pause)
+            if(this.pause === false){
+                console.log(`inside if`,this.pause)
 
-            //addObstacles
-            this.addObstacles();
-    
-            //add bonusItems
-            this.addBonusItems()
+                //call charactermove function to move character
+                this.character.move();
+                
+                //increment distance
+                this.distance ++
+                
+                //update level
+                this.updateLevel();
+                
+                //draw stats
+                this.stats();
+
+                //addClouds
+                this.addClouds();
+
+                //addObstacles
+                this.addObstacles();
+        
+                //add bonusItems
+                this.addBonusItems()
+                
+                //addHeart
+                this.addHeart();
             
-            //addHeart
-            this.addHeart();
-            
-            //endGame
-            if(this.lives < 0){
+                //endGame
+                if(this.lives < 0){
                 clearInterval(idInterval)
                 this.clear()
                 this.final();
             }
 
+            }
+            
+
             
             
         }, 5);
-        
-    }
+    } 
+    
+    
     
 
     //WRITE FUNCTIONS
@@ -304,12 +316,13 @@ class Game {
     setTimeout(window.open('gameover.html', '_self',false),3000)
     
   }
-
+    setEventListenerPauseButton(){
+        pause.onclick = () => this.pause = this.pause === true ? false : true;
+    }
 
 }
 
-// let pause = document.getElementById("pause");
-// pause.onclick = function() {
-// console.log('pause')
-// clearInterval(Game.idInterval)
-// }
+
+
+
+

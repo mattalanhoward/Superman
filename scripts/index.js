@@ -13,7 +13,12 @@ window.onload = function () {
 
     function startGame(){
         //get item scoreboard from gameover.html
-        const scoreboard = JSON.parse(localStorage.getItem("scoreboard"))
+        let scoreboard = JSON.parse(localStorage.getItem("scoreboard"))
+
+        //set scoreboard to empty array
+        if (scoreboard === null) {
+        scoreboard = []
+        }
 
         //push playerName into scoreboard array
         scoreboard.push({name:playerName.value})

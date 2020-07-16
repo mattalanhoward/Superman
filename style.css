@@ -60,6 +60,30 @@ h1{
     margin: 0 auto;
 }
 
+table{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid yellow; */
+    width: 40%;
+    /* text-align: center; */
+    margin: 10px auto;
+}
+
+th, td{
+    /* border: 1px solid orange; */
+    padding: 5px;
+    margin: 10px;
+    width: 600px;
+    text-align: center;
+}
+
+th {
+    border-bottom: 1px solid rgb(255,255,255)
+}
+
+h6{
+    margin: 10px auto 0;
+}
 /* #canvas {
     border: 1px solid yellow;
 } */

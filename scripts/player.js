@@ -45,7 +45,6 @@ class Player extends Component {
     
 
 
-
     // move player
     move() {
       if(this.LEFT) { 
