@@ -1,4 +1,9 @@
 window.onload = function () {
+
+    //play intro music
+    let introMusic = new Audio("../sound/Show Introduction.mp3")
+    introMusic.play();
+
     //get start button
     let start = document.getElementById("start-button");
 

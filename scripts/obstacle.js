@@ -8,6 +8,7 @@ class Obstacle extends Component {
         this.width = 15;
         this.height = 15;
         this.img = new Image();
+
     }
     
     //create draw image function
@@ -35,6 +36,13 @@ class Obstacle extends Component {
     bounce(){
             this.x += 200;
             this.y += 2000;
+    }
+
+    kryptonite(){
+        let krypt = [new Audio("../sound/Kryptonite.m4a"), new Audio("../sound/Kryptonite1.m4a")]
+        let randomIdx = Math.floor(Math.random() * krypt.length)
+           krypt[randomIdx].play();
+            
     }
 
     

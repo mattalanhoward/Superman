@@ -18,6 +18,10 @@ class Game {
         this.scoreboard = [];
         this.pause = false;
         this.pauseButton = document.getElementById("pause");
+        this.backgroundMusic = new Audio("sound/Superman Theme.mp3")
+        this.introMusic = new Audio("../sound/Show Introduction.mp3")
+        this.heartSound = new Audio("../sound/Thats the spirit.m4a")
+        
     }
 
     //initialize game
@@ -32,19 +36,18 @@ class Game {
         this.createClouds();
         this.createBonusItems();
         this.createHeart();
+        setInterval(() => {
+            this.backgroundMusic.volume = 0.2;
+            this.backgroundMusic.play();
+        }, 1000);
 
         
     }
+        
+        
 
     //start game
     start() {
-
-        //*********************CHECK THIS (DON'T THINK I NEED THEM************************)
-        // //draw background
-        // this.drawBackGround();
-
-        // //draw main character
-        // this.drawMainCharacter();
 
         //set frame refresh (can also be done with requestAnimationFrame)
         
@@ -61,9 +64,7 @@ class Game {
             //draw character
             this.drawMainCharacter();
 
-            console.log(`outside if`,this.pause)
             if(this.pause === false){
-                console.log(`inside if`,this.pause)
 
                 //call charactermove function to move character
                 this.character.move();
@@ -196,7 +197,8 @@ class Game {
                 this.hit();
                 this.ouch();
                 this.obstacles[i].bounce();
-                this.character.bounce();                        
+                this.character.bounce(); 
+                this.obstacles[i].kryptonite();                       
                 };
 
             //erase obstacles after they leave canvas
@@ -217,7 +219,9 @@ class Game {
             //check collision
             if(this.character.crashCollision(this.bonusItems[i])){
                 this.bonusItems[i].collect();
-                this.score +=10                 
+                this.score +=10  
+                this.bonusItems[i].taunt()
+                              
             };
                 
             //erase bonus after they leave canvas
@@ -226,6 +230,8 @@ class Game {
             }
         }
     };
+
+
 
     //add heart
     addHeart(){
@@ -237,7 +243,8 @@ class Game {
             //check collision
             if(this.character.crashCollision(this.heart[i])){
                 this.heart[i].collect();
-                this.lives +=1             
+                this.lives +=1;
+                this.heartSound.play();          
             };
                 
             //erase heart after they leave canvas

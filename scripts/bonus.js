@@ -8,6 +8,8 @@ class Bonus extends Component {
         this.width = 25;
         this.height = 50;
         this.img = new Image();
+        
+
     }
     draw(){
         //access image
@@ -32,5 +34,12 @@ class Bonus extends Component {
     collect(){
         this.x += 200;
         this.y += 2000;
+    }
+
+    taunt(){
+        let taunt = [new Audio("../sound/Diseased maniac.m4a"), new Audio("../sound/Poisonous snake.m4a"), new Audio("../sound/Ever let up.m4a")]
+        let randomIdx = Math.floor(Math.random() * taunt.length)
+           taunt[randomIdx].play();
+            
     }
 }

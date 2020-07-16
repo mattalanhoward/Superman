@@ -1,4 +1,11 @@
 window.onload = function () {
+    //play intro music
+    let usedToPlay = new Audio("../sound/Used to play.mp3")
+    usedToPlay.play();
+
+    let endTheme = new Audio("../sound/End Theme.mp3")
+    endTheme.play();
+    
     //get playAgain button
     let playAgain = document.getElementById("playAgain");
 

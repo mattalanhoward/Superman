@@ -33,4 +33,5 @@ class Heart extends Component {
         this.x += 200;
         this.y += 2000;
     }
+
 }
