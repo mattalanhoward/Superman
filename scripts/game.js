@@ -19,8 +19,8 @@ class Game {
         this.pause = false;
         this.pauseButton = document.getElementById("pause");
         this.backgroundMusic = new Audio("sound/Superman Theme.mp3")
-        this.introMusic = new Audio("../sound/Show Introduction.mp3")
-        this.heartSound = new Audio("../sound/Thats the spirit.m4a")
+        this.introMusic = new Audio("sound/Show Introduction.mp3")
+        this.heartSound = new Audio("sound/Thats the spirit.m4a")
         
     }
 
@@ -273,7 +273,7 @@ class Game {
     //draw background
     drawBackGround(){
         //link image
-        this.backgroundImg.src = "../images/blue-sky.png";
+        this.backgroundImg.src = "images/blue-sky.png";
         //draw image
         this.ctx.drawImage(
         this.backgroundImg,

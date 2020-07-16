@@ -37,7 +37,7 @@ class Bonus extends Component {
     }
 
     taunt(){
-        let taunt = [new Audio("../sound/Diseased maniac.m4a"), new Audio("../sound/Poisonous snake.m4a"), new Audio("../sound/Ever let up.m4a")]
+        let taunt = [new Audio("sound/Diseased maniac.m4a"), new Audio("sound/Poisonous snake.m4a"), new Audio("sound/Ever let up.m4a")]
         let randomIdx = Math.floor(Math.random() * taunt.length)
            taunt[randomIdx].play();
             

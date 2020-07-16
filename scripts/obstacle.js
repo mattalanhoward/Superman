@@ -39,7 +39,7 @@ class Obstacle extends Component {
     }
 
     kryptonite(){
-        let krypt = [new Audio("../sound/Kryptonite.m4a"), new Audio("../sound/Kryptonite1.m4a")]
+        let krypt = [new Audio("sound/Kryptonite.m4a"), new Audio("sound/Kryptonite1.m4a")]
         let randomIdx = Math.floor(Math.random() * krypt.length)
            krypt[randomIdx].play();
             
