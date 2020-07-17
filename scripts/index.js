@@ -12,7 +12,6 @@ window.onload = function () {
     
     //call startGame when start button is clicked.
     start.onclick = function() {
-        console.log('button click')
         startGame();
     };
 

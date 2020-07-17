@@ -105,17 +105,15 @@ class Game {
     } 
     
     
-    
 
     //WRITE FUNCTIONS
-
+    
     //create obstacle
     createObstacles(){
         //randomly if even number create obstacle
         if(Math.floor(Math.random() * 10) % 3 === 0){
         //each time we create obstacle => push to array
         this.obstacles.push(new Obstacle(this))
-        console.log(`obstacles --->`, this.obstacles)
         }
 
     //recurssion
@@ -130,8 +128,6 @@ class Game {
         if(Math.floor(Math.random() * 10) % 2 === 0){
         //each time we create cloud => push to array
         this.clouds.push(new Clouds(this))
-        console.log(`clouds --->`, this.clouds);
-        console.log(`clouds height--->`,this.clouds.height)
         }    
 
     //recurssion
@@ -146,7 +142,6 @@ class Game {
         if(Math.floor(Math.random() * 10) % 2 === 0){
         //each time we create bonusItems => push to array
         this.bonusItems.push(new Bonus(this))
-        console.log(`bonusItems --->`, this.bonusItems);
         }    
     
         //recurssion
@@ -161,7 +156,6 @@ class Game {
         if(Math.floor(Math.random() * 2) % 2 === 0){
         //each time we create heart => push to array
         this.heart.push(new Heart(this))
-        console.log(`heart --->`, this.heart);
         }    
     
         //recurssion
@@ -169,6 +163,7 @@ class Game {
             this.createHeart();
         },this.level*10)
     }
+
 
     //add clouds
     addClouds(){

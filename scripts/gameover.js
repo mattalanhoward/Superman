@@ -1,9 +1,9 @@
 window.onload = function () {
     //play intro music
-    let usedToPlay = new Audio("../sound/Used to play.mp3")
+    let usedToPlay = new Audio("sound/Used to play.mp3")
     usedToPlay.play();
 
-    let endTheme = new Audio("../sound/End Theme.mp3")
+    let endTheme = new Audio("sound/End Theme.mp3")
     endTheme.play();
     endTheme.volume = 0.4;
     
@@ -29,24 +29,20 @@ window.onload = function () {
     let newScore = JSON.parse(localStorage.getItem('scoreboard'));
 
     
-    console.log(`newScore array ----->`,newScore)
     
-    
-    // let filtered = newScore.filter(num => num.typeof == "number")
-    // console.log(filtered)
 
     //sort newScore array by score
     newScore.sort((a, b) => (a.score < b.score) ? 1 : -1)
-    console.log(newScore)
     
 
     
 
     //get scoreboard from gameover.html
     let scoreboard = document.getElementById("scoreboard");
-    console.log(scoreboard)
+ 
     
     //create loop to insert name and scores into table
+    
     for(i=0;i<5;i++){
 
             //create text nodes for name and score
