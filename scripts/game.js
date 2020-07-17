@@ -94,6 +94,8 @@ class Game {
                 clearInterval(idInterval)
                 this.clear()
                 this.final();
+
+
             }
 
             }
@@ -119,7 +121,7 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createObstacles();
-    },this.level/2)
+    },this.level/3)
     }
 
     //create clouds
@@ -133,7 +135,7 @@ class Game {
     //recurssion
     setTimeout(()=>{
         this.createClouds();
-    },this.level/3)
+    },this.level)
     }
 
     //create bonus
@@ -160,7 +162,7 @@ class Game {
     
         //recurssion
         setTimeout(()=>{
-            this.createHeart();
+        this.createHeart();
         },this.level*10)
     }
 
@@ -299,7 +301,7 @@ class Game {
         //flash screen red when hit
         this.ctx.fillStyle = 'red'        
         this.ctx.font = '100px sans-serif'
-        this.ctx.fillText("BAM!!", 300, 200)
+        this.ctx.fillText("KRYPTONITE!!", 100, 200)
     }
 
     //Gameover function
@@ -320,6 +322,8 @@ class Game {
   }
     setEventListenerPauseButton(){
         pause.onclick = () => this.pause = this.pause === true ? false : true;
+    
+
     }
 
 }

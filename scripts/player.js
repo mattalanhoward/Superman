@@ -121,8 +121,8 @@ class Player extends Component {
 
     bounce() {
       
-        this.x -= 20;
-        this.y -= 10;
+        this.x -= 30;
+        this.y -= 20;
       
     }
 }
