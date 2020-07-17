@@ -8,42 +8,6 @@ class Player extends Component {
         this.speed = 2;
     }
 
-    // move() {
-      
-    //   if(this.LEFT) { 
-    //     this.x -= this.speed;
-    //   }
-    //   if(this.RIGHT) {
-    //     this.x += this.speed;	
-    //   }
-    //   if(this.UP) { 
-    //     this.y -= this.speed;
-    //   }
-    //   if(this.DOWN) {
-    //     this.y += this.speed;	
-    //   }
-
-    //   document.onkeydown = event => {
-    //   console.log(`keydown`,event)
-    //   event.preventDefault() // stops the button scrolling the page
-    //     if(event.keyCode == 37) this.LEFT = true;
-    //     if(event.keyCode == 39) this.RIGHT = true;
-    //     if(event.keyCode == 38) this.UP = true;
-    //     if(event.keyCode == 40) this.DOWN = true;
-    //   }
-      
-    //   document.onkeyup = event => {
-    //     console.log(`keyup`,event)
-    //     event.preventDefault() // stops the button scrolling the page
-    //     if(event.keyCode == 37) this.LEFT = false;
-    //     if(event.keyCode == 39) this.RIGHT = false;
-    //     if(event.keyCode == 38) this.UP = false;
-    //     if(event.keyCode == 40) this.DOWN = false;
-    //   }
-    // }
-    
-    
-
 
     // move player
     move() {
