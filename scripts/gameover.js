@@ -5,6 +5,7 @@ window.onload = function () {
 
     let endTheme = new Audio("../sound/End Theme.mp3")
     endTheme.play();
+    endTheme.volume = 0.4;
     
     //get playAgain button
     let playAgain = document.getElementById("playAgain");
@@ -30,9 +31,14 @@ window.onload = function () {
     
     console.log(`newScore array ----->`,newScore)
     
+    
+    // let filtered = newScore.filter(num => num.typeof == "number")
+    // console.log(filtered)
+
     //sort newScore array by score
     newScore.sort((a, b) => (a.score < b.score) ? 1 : -1)
     console.log(newScore)
+    
 
     
 

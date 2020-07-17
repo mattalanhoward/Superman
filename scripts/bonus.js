@@ -13,7 +13,7 @@ class Bonus extends Component {
     }
     draw(){
         //access image
-        this.img.src = "images/Lex.png";
+        this.img.src = ("images/Lex.png")
         //draw bonus
         this.game.ctx.drawImage(
             this.img,
@@ -42,4 +42,12 @@ class Bonus extends Component {
            taunt[randomIdx].play();
             
     }
+
+    // villians(){
+    //     let villiansArr = ["images/Lex.png","images/brainiac.png"]
+    //     let randomIdx = Math.floor(Math.random() * villiansArr.length)
+        
+    //     return villiansArr[randomIdx]
+        
+    // }
 }

@@ -26,7 +26,7 @@ window.onload = function () {
         }
 
         //push playerName into scoreboard array
-        scoreboard.push({name:playerName.value})
+        scoreboard.push({name:playerName.value,score:"0"})
 
         //set scoreboard with new name into local storage
         localStorage.setItem("scoreboard",JSON.stringify(scoreboard))

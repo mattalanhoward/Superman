@@ -37,7 +37,6 @@ class Game {
         this.createBonusItems();
         this.createHeart();
         setInterval(() => {
-            this.backgroundMusic.volume = 0.2;
             this.backgroundMusic.play();
         }, 1000);
 
@@ -315,6 +314,7 @@ class Game {
 
         //add new score to scoreboard
         this.scoreboard[this.scoreboard.length - 1].score = this.score;
+        
 
         //set localstorage with new score
         localStorage.setItem("scoreboard",JSON.stringify(this.scoreboard))
