@@ -1,8 +1,6 @@
 class Game {
     //construct new game object
     constructor(){
-        this.canvas = undefined;
-        this.ctx = undefined;
         this.character = new Player(this, 100,160, 40, 80);
         this.obstacles = [];
         this.bonusItems = [];
@@ -20,8 +18,6 @@ class Game {
         this.pauseButton = document.getElementById("pause");
         this.backgroundMusic = new Audio("sound/Superman Theme.mp3")
         this.introMusic = new Audio("sound/Show Introduction.mp3")
-        this.heartSound = new Audio("sound/Thats the spirit.m4a")
-        
     }
 
     //initialize game
@@ -38,9 +34,7 @@ class Game {
         this.createHeart();
         setInterval(() => {
             this.backgroundMusic.play();
-        }, 1000);
-
-        
+        }, 1000);  
     }
         
         
@@ -106,8 +100,6 @@ class Game {
         }, 5);
     } 
     
-    
-
     //WRITE FUNCTIONS
     
     //create obstacle
@@ -319,6 +311,7 @@ class Game {
     
   }
 
+    //Event Listener for Pause Button
     setEventListenerPauseButton(){
         pause.onclick = () => {
             if(this.pause === true){
