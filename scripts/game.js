@@ -227,8 +227,6 @@ class Game {
         }
     };
 
-
-
     //add heart
     addHeart(){
         //loop through array of bonusItems and draw each
@@ -320,11 +318,22 @@ class Game {
     setTimeout(window.open('gameover.html', '_self',false),3000)
     
   }
-    setEventListenerPauseButton(){
-        pause.onclick = () => this.pause = this.pause === true ? false : true;
-    
 
+    setEventListenerPauseButton(){
+        pause.onclick = () => {
+            if(this.pause === true){
+                this.pause = false
+            } else if (this.pause === false){
+                this.pause = true
+            }
+            if(this.pauseButton.innerHTML === "Pause"){
+                this.pauseButton.innerHTML = "Resume"
+            } else {
+                this.pauseButton.innerHTML = "Pause"
+            }
+        }
     }
+
 
 }
 
