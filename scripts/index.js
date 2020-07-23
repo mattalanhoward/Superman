@@ -40,3 +40,10 @@ window.onload = function () {
     }
 
 };
+
+function setup(e) {
+    let removeButton = document.querySelector(".remove")
+    removeButton.onclick(
+      e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode)
+    )
+  }

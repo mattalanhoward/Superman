@@ -20,23 +20,32 @@ class Player extends Component {
         if(this.x <= 600 - this.width) this.x += this.speed;	
       }
       
+      //comment out and uncomment items below to switch gameplay where superman leaves screen and appears on the other side.
       if(this.UP) { 
-        this.y -= this.speed;
+        if(this.y >= 0) this.y -= this.speed;
       }
       
-      // //TOP TO BOTTOM
-      if(this.y < -10) {
-        this.y = 400 - this.height
-      }
-
       if(this.DOWN) {
-        this.y += this.speed;	
+        if(this.y <= 400 - this.height) this.y += this.speed;	
       }
 
-      // BOTTOM TO TOP
-      if(this.y > 400 - this.height) {
-        this.y = -10
-      }
+      // if(this.UP) { 
+      //   this.y -= this.speed;
+      // }
+      
+      // // //TOP TO BOTTOM
+      // if(this.y < -10) {
+      //   this.y = 400 - this.height
+      // }
+
+      // if(this.DOWN) {
+      //   this.y += this.speed;	
+      // }
+
+      // // BOTTOM TO TOP
+      // if(this.y > 400 - this.height) {
+      //   this.y = -10
+      // }
 
         document.onkeydown = event => {
             event.preventDefault() // stops the button scrolling the page

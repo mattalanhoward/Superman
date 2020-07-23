@@ -30,8 +30,6 @@ class Heart extends Component {
     }
 
     collect(){
-        let heartSound = new Audio("sound/Thats the spirit.m4a")
-        heartSound.play();
         this.x += 200;
         this.y += 2000;
     }

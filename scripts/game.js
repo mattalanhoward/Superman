@@ -18,6 +18,7 @@ class Game {
         this.pauseButton = document.getElementById("pause");
         this.backgroundMusic = new Audio("sound/Superman Theme.mp3")
         this.introMusic = new Audio("sound/Show Introduction.mp3")
+        this.heartSound = new Audio("sound/Thats the spirit.m4a")
     }
 
     //initialize game
