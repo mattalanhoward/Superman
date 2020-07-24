@@ -1,32 +1,85 @@
 
 
 body {
-    background-color: rgb(37,37,37);
     color: rgb(255,255,255);
-    /* border: 1px solid orange; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url(images/blue-sky.png);
+
 }
 
-h1{
-    /* border: 1px solid red; */
-    width: 95%;
-    text-align: center;
+p{
+    font-weight: bold;
+}
+
+#name{
+    margin: 10px 0;
+}
+
+#writting-logo{
+    width: 400px;
+    height: auto;
     padding: 10px;
-    margin: 10px auto ;
-    border-bottom: 1px solid rgb(255,255,255);
-    font-family: 'Times New Roman', 'Times New Roman', Times, serif;
-    
+    margin: 30px auto 0;
+}
+
+
+
+#writting-logo-game{
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    margin: 30px auto 0;
 }
 
 #main-container{
+    width: 800px;
+    height: 400px;
     display: flex;
-    justify-content: space-evenly;
-    border-top: 1px solid rgb(255,255,255);
+    justify-content: center;
+    align-items: center;
     margin: 20px auto;
     padding: 20px;
+    background-color: rgba(254,187,44);
+    border-radius: 10px;
+    border: 1px solid rgb(255,255,255);
 
+}
+
+#main-container-game{
+    width: 800px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: rgba(254,187,44); */
+    border-radius: 10px;
+}
+
+#gameover-container{
+    width: 800px;
+    height: 450px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid rgb(255,255,255);
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(254,187,44);
+    border-radius: 10px;
+}
+
+#high-score-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#scores-container{
+    width: 50%;
 }
 
 #instructions{
@@ -38,15 +91,14 @@ h1{
 }
 
 #superman{
-    /* border:1px solid yellow; */
     width: auto;
     height: 200px;
-    margin-bottom: 30px;
+    margin: 20px;
 }
 
 #lex {
     width:auto;
-    height: 200px;
+    height: 250px;
     padding:0 40px;
 }
 
@@ -63,27 +115,18 @@ h1{
 table{
     display: flex;
     justify-content: center;
-    /* border: 1px solid yellow; */
-    width: 40%;
-    /* text-align: center; */
     margin: 10px auto;
 }
 
 th, td{
-    /* border: 1px solid orange; */
     padding: 5px;
     margin: 10px;
     width: 600px;
     text-align: center;
 }
 
-th {
-    border-bottom: 1px solid rgb(255,255,255)
-}
 
 h6{
     margin: 10px auto 0;
 }
-/* #canvas {
-    border: 1px solid yellow;
-} */
+
